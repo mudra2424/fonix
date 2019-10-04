@@ -1,0 +1,14 @@
+platform=1506599574000
+cluster.maltego=1506599574000
+cluster.groovy=1506599562000
+cluster.ide=1506599562000
+cluster.java=1506599564000
+cluster.maltego-ui=1506599570000
+cluster.maltego-core-platform=1506599564000
+cluster.extra=1506599562000
+user=1506599574000
+crc=7
+locale=en_US
+branding=maltego
+java.version=1.8.0_212
+java.vm.version=25.212-b01

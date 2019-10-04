@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="searx - a privacy-respecting, hackable metasearch engine" />
+    <meta name="keywords" content="searx, search, search engine, metasearch, meta search" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="searx/0.15.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , maximum-scale=1.0, user-scalable=1" />
+<link rel="alternate" type="application/rss+xml" title="Searx search: youtube" href="http://localhost:8888/?q=youtube&amp;categories=general&amp;language=en-US&amp;format=rss">    <title>youtube - searx</title>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="/static/themes/oscar/css/logicodev.min.css" type="text/css" />
+    <link rel="stylesheet" href="/static/themes/oscar/css/leaflet.min.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/static/js/html5shiv.min.js"></script>
+      <script src="/static/js/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="/static/themes/oscar/img/favicon.png" />
+
+
+    <link title="searx" type="application/opensearchdescription+xml" rel="search" href="/opensearch.xml"/>
+    <noscript>
+        <style type="text/css">
+            .tab-content > .active_if_nojs, .active_if_nojs {display: block !important; visibility: visible !important;}
+            .margin_top_if_nojs {margin-top: 20px;}
+            .hide_if_nojs {display: none !important;overflow:none !important;}
+            .disabled_if_nojs {pointer-events: none; cursor: default; text-decoration: line-through;}
+        </style>
+    </noscript>
+</head>
+<body>
+<div class="searx-navbar">
+    <span class="instance pull-left">
+        <a href="/">searx</a>
+    </span>
+    <span class="pull-right">
+        <a href="/about">about</a>
+        <a href="/preferences">preferences</a>
+    </span>
+</div>    <div class="container">
+
+
+<form method="POST" action="/" id="search_form" role="search">
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="input-group search-margin">
+        <input type="search" name="q" class="form-control" id="q" placeholder="Search for..." autocomplete="off" value="youtube">
+        <span class="input-group-btn">
+            <button type="submit" class="btn btn-default"><span class="hide_if_nojs"><span class="glyphicon glyphicon-search"></span></span><span class="hidden active_if_nojs">Start search</span></button>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-2 search-margin">
+<select name="time_range" id="time-range" class="custom-select form-control">
+    <option id="time-range-anytime" value="" selected>
+        Anytime
+    </option>
+    <option id="time-range-day" value="day" >
+        Last day
+    </option>
+    <option id="time-range-week" value="week" >
+        Last week
+    </option>
+    <option id="time-range-month" value="month" >
+        Last month
+    </option>
+    <option id="time-range-year" value="year" >
+        Last year
+    </option>
+</select>    </div>
+    <div class="col-xs-6 col-md-2 search-margin">
+<select class="custom-select form-control" name='language'>
+	<option value="all" >Default language</option>
+		<option value="ms-MY" >
+			Bahasa Melayu - ms-MY
+		</option>
+		<option value="ca-ES" >
+			Català - ca-ES
+		</option>
+		<option value="da-DK" >
+			Dansk - da-DK
+		</option>
+		<option value="de" >
+			Deutsch - de
+		</option>
+		<option value="de-AT" >
+			Deutsch (Österreich) - de-AT
+		</option>
+		<option value="de-CH" >
+			Deutsch (Schweiz) - de-CH
+		</option>
+		<option value="de-DE" >
+			Deutsch (Deutschland) - de-DE
+		</option>
+		<option value="et-EE" >
+			Eesti - et-EE
+		</option>
+		<option value="en" >
+			English - en
+		</option>
+		<option value="en-AU" >
+			English (Australia) - en-AU
+		</option>
+		<option value="en-CA" >
+			English (Canada) - en-CA
+		</option>
+		<option value="en-GB" >
+			English (United Kingdom) - en-GB
+		</option>
+		<option value="en-IN" >
+			English (India) - en-IN
+		</option>
+		<option value="en-MY" >
+			English (Malaysia) - en-MY
+		</option>
+		<option value="en-US" selected="selected">
+			English (United States) - en-US
+		</option>
+		<option value="es" >
+			Español - es
+		</option>
+		<option value="es-AR" >
+			Español (Argentina) - es-AR
+		</option>
+		<option value="es-ES" >
+			Español (España) - es-ES
+		</option>
+		<option value="es-MX" >
+			Español (México) - es-MX
+		</option>
+		<option value="fr" >
+			Français - fr
+		</option>
+		<option value="fr-BE" >
+			Français (Belgique) - fr-BE
+		</option>
+		<option value="fr-CA" >
+			Français (Canada) - fr-CA
+		</option>
+		<option value="fr-CH" >
+			Français (Suisse) - fr-CH
+		</option>
+		<option value="fr-FR" >
+			Français (France) - fr-FR
+		</option>
+		<option value="hr-HR" >
+			Hrvatski - hr-HR
+		</option>
+		<option value="id-ID" >
+			Indonesia - id-ID
+		</option>
+		<option value="it-IT" >
+			Italiano - it-IT
+		</option>
+		<option value="lv-LV" >
+			Latviešu - lv-LV
+		</option>
+		<option value="lt-LT" >
+			Lietuvių - lt-LT
+		</option>
+		<option value="hu-HU" >
+			Magyar - hu-HU
+		</option>
+		<option value="nl" >
+			Nederlands - nl
+		</option>
+		<option value="nl-BE" >
+			Nederlands (België) - nl-BE
+		</option>
+		<option value="nl-NL" >
+			Nederlands (Nederland) - nl-NL
+		</option>
+		<option value="nb-NO" >
+			Norsk Bokmål - nb-NO
+		</option>
+		<option value="pl-PL" >
+			Polski - pl-PL
+		</option>
+		<option value="pt" >
+			Português - pt
+		</option>
+		<option value="pt-BR" >
+			Português (Brasil) - pt-BR
+		</option>
+		<option value="pt-PT" >
+			Português (Portugal) - pt-PT
+		</option>
+		<option value="ro-RO" >
+			Română - ro-RO
+		</option>
+		<option value="sk-SK" >
+			Slovenčina - sk-SK
+		</option>
+		<option value="sl-SI" >
+			Slovenščina - sl-SI
+		</option>
+		<option value="fi-FI" >
+			Suomi - fi-FI
+		</option>
+		<option value="sv-SE" >
+			Svenska - sv-SE
+		</option>
+		<option value="vi-VN" >
+			Tiếng Việt - vi-VN
+		</option>
+		<option value="tr-TR" >
+			Türkçe - tr-TR
+		</option>
+		<option value="is-IS" >
+			Íslenska - is-IS
+		</option>
+		<option value="cs-CZ" >
+			Čeština - cs-CZ
+		</option>
+		<option value="el-GR" >
+			Ελληνικά - el-GR
+		</option>
+		<option value="bg-BG" >
+			Български - bg-BG
+		</option>
+		<option value="ru-RU" >
+			Русский - ru-RU
+		</option>
+		<option value="sr-RS" >
+			Српски - sr-RS
+		</option>
+		<option value="uk-UA" >
+			Українська - uk-UA
+		</option>
+		<option value="he-IL" >
+			עברית - he-IL
+		</option>
+		<option value="ar-SA" >
+			العربية - ar-SA
+		</option>
+		<option value="fa-IR" >
+			فارسی - fa-IR
+		</option>
+		<option value="th-TH" >
+			ไทย - th-TH
+		</option>
+		<option value="zh" >
+			中文 - zh
+		</option>
+		<option value="zh-CN" >
+			中文 (中国) - zh-CN
+		</option>
+		<option value="zh-TW" >
+			中文 (台灣) - zh-TW
+		</option>
+		<option value="ja-JP" >
+			日本語 - ja-JP
+		</option>
+		<option value="ko-KR" >
+			한국어 - ko-KR
+		</option>
+</select>    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+<div id="categories">
+        <input class="hidden" type="checkbox" id="checkbox_general" name="category_general" checked="checked" />
+        <label for="checkbox_general">general</label>
+        <input class="hidden" type="checkbox" id="checkbox_files" name="category_files"  />
+        <label for="checkbox_files">files</label>
+        <input class="hidden" type="checkbox" id="checkbox_images" name="category_images"  />
+        <label for="checkbox_images">images</label>
+        <input class="hidden" type="checkbox" id="checkbox_it" name="category_it"  />
+        <label for="checkbox_it">it</label>
+        <input class="hidden" type="checkbox" id="checkbox_map" name="category_map"  />
+        <label for="checkbox_map">map</label>
+        <input class="hidden" type="checkbox" id="checkbox_music" name="category_music"  />
+        <label for="checkbox_music">music</label>
+        <input class="hidden" type="checkbox" id="checkbox_news" name="category_news"  />
+        <label for="checkbox_news">news</label>
+        <input class="hidden" type="checkbox" id="checkbox_science" name="category_science"  />
+        <label for="checkbox_science">science</label>
+        <input class="hidden" type="checkbox" id="checkbox_social_media" name="category_social media"  />
+        <label for="checkbox_social_media">social media</label>
+        <input class="hidden" type="checkbox" id="checkbox_videos" name="category_videos"  />
+        <label for="checkbox_videos">videos</label>
+</div>    </div>
+  </div>
+</form><!-- / #search_form_full -->    <div class="row">
+        <div class="col-sm-8" id="main_results">
+            <h1 class="sr-only">Search results</h1>
+
+
+
+            <div class="result result-default">
+
+<h4 class="result_header"><a href="https://en.wikipedia.org/wiki/YouTube" rel="noreferrer"><span class="highlight">YouTube</span> - Wikipedia</a></h4>
+
+
+
+
+<p class="result-content"><span class="highlight">YouTube</span> is an American video-sharing website headquartered in San Bruno, California. Three former PayPal employees—Chad Hurley, Steve Chen, and ...</p>
+<div class="clearfix"></div>
+    <div class="pull-right">
+        <span class="label label-default">google</span>
+        <span class="label label-default">wikipedia</span>
+    <small><a href="https://web.archive.org/web/https://en.wikipedia.org/wiki/YouTube" class="text-info" rel="noreferrer"><span class="glyphicon glyphicon-link"></span>cached</a></small>
+</div>
+<div class="external-link">https://en.wikipedia.org/wiki/YouTube</div>
+            </div>
+            <div class="result result-default">
+
+<h4 class="result_header"><a href="https://www.youtube.com/" rel="noreferrer"><span class="highlight">YouTube</span></a></h4>
+
+
+
+
+<p class="result-content">Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on <span class="highlight">YouTube</span>.</p>
+<div class="clearfix"></div>
+    <div class="pull-right">
+        <span class="label label-default">google</span>
+    <small><a href="https://web.archive.org/web/https://www.youtube.com/" class="text-info" rel="noreferrer"><span class="glyphicon glyphicon-link"></span>cached</a></small>
+</div>
+<div class="external-link">https://www.youtube.com/</div>
+            </div>
+            <div class="result result-default">
+
+<h4 class="result_header"><a href="https://play.google.com/store/apps/details?id=com.google.android.youtube&amp;hl=en" rel="noreferrer"><span class="highlight">YouTube</span> - Apps on Google Play</a></h4>
+
+
+
+
+<p class="result-content">Rating: 4.4 - 55,910,107 votes - Free - Android - Entertainment&lt;br /&gt;Get the official <span class="highlight">YouTube</span> app for Android phones and tablets. See what the world is watching -- from the hottest music videos to what's trending in gaming, ...</p>
+<div class="clearfix"></div>
+    <div class="pull-right">
+        <span class="label label-default">google</span>
+    <small><a href="https://web.archive.org/web/https://play.google.com/store/apps/details?id=com.google.android.youtube&amp;hl=en" class="text-info" rel="noreferrer"><span class="glyphicon glyphicon-link"></span>cached</a></small>
+</div>
+<div class="external-link">https://play.google.com/store/apps/det[...]ls?id=com.google.android.youtube&amp;hl=en</div>
+            </div>
+            <div class="result result-default">
+
+<h4 class="result_header"><a href="https://www.facebook.com/youtube/" rel="noreferrer"><span class="highlight">YouTube</span> - Home | Facebook</a></h4>
+
+
+
+
+<p class="result-content"><span class="highlight">YouTube</span>. 83M likes. The latest and greatest music videos, trends and channels from <span class="highlight">YouTube</span>.</p>
+<div class="clearfix"></div>
+    <div class="pull-right">
+        <span class="label label-default">google</span>
+    <small><a href="https://web.archive.org/web/https://www.facebook.com/youtube/" class="text-info" rel="noreferrer"><span class="glyphicon glyphicon-link"></span>cached</a></small>
+</div>
+<div class="external-link">https://www.facebook.com/youtube/</div>
+            </div>
+            <div class="result result-default">
+
+<h4 class="result_header"><a href="https://twitter.com/youtube?lang=en" rel="noreferrer"><span class="highlight">YouTube</span> (@<span class="highlight">YouTube</span>) | Twitter</a></h4>
+
+
+
+
+<p class="result-content">The latest Tweets from <span class="highlight">YouTube</span> (@<span class="highlight">YouTube</span>). Like and subscribe. San Bruno, CA.</p>
+<div class="clearfix"></div>
+    <div class="pull-right">
+        <span class="label label-default">google</span>
+    <small><a href="https://web.archive.org/web/https://twitter.com/youtube?lang=en" class="text-info" rel="noreferrer"><span class="glyphicon glyphicon-link"></span>cached</a></small>
+</div>
+<div class="external-link">https://twitter.com/youtube?lang=en</div>
+            </div>
+            <div class="result result-default">
+
+<h4 class="result_header"><a href="https://support.google.com/youtube/?hl=en" rel="noreferrer"><span class="highlight">YouTube</span> Help - Google Support</a></h4>
+
+
+
+
+<p class="result-content">... playing videos · Troubleshoot account issues · Fix upload problems · Fix <span class="highlight">YouTube</span> Premium membership issues · Get help with the <span class="highlight">YouTube</span> Partner Program ...</p>
+<div class="clearfix"></div>
+    <div class="pull-right">
+        <span class="label label-default">google</span>
+    <small><a href="https://web.archive.org/web/https://support.google.com/youtube/?hl=en" class="text-info" rel="noreferrer"><span class="glyphicon glyphicon-link"></span>cached</a></small>
+</div>
+<div class="external-link">https://support.google.com/youtube/?hl=en</div>
+            </div>
+            <div class="result result-default">
+
+<h4 class="result_header"><a href="https://support.google.com/youtube/answer/1646861?hl=en" rel="noreferrer">Create a new channel - <span class="highlight">YouTube</span> Help - Google Support</a></h4>
+
+
+
+
+<p class="result-content">With a Google Account, you can watch and like videos and subscribe to channels . However, without a <span class="highlight">YouTube</span> channel, you have no public presence on ...</p>
+<div class="clearfix"></div>
+    <div class="pull-right">
+        <span class="label label-default">google</span>
+    <small><a href="https://web.archive.org/web/https://support.google.com/youtube/answer/1646861?hl=en" class="text-info" rel="noreferrer"><span class="glyphicon glyphicon-link"></span>cached</a></small>
+</div>
+<div class="external-link">https://support.google.com/youtube/answer/1646861?hl=en</div>
+            </div>
+
+
+            <div class="clearfix"></div>
+
+            <div id="pagination">
+                <div class="pull-left">
+                    <form method="POST" action="/" class="pull-left">
+                        <input type="hidden" name="category_general" value="1"/>    <input type="hidden" name="q" value="youtube" />
+    <input type="hidden" name="pageno" value="0" />
+    <input type="hidden" name="time_range" value="" />
+    <input type="hidden" name="language" value="en-US" />
+
+                        <button type="submit" class="btn btn-default" disabled><span class="glyphicon glyphicon-backward"></span> previous page</button>
+                    </form>
+                </div>
+                <div class="pull-right">
+                    <form method="POST" action="/"  class="pull-left">
+                        <input type="hidden" name="category_general" value="1"/>    <input type="hidden" name="q" value="youtube" />
+    <input type="hidden" name="pageno" value="2" />
+    <input type="hidden" name="time_range" value="" />
+    <input type="hidden" name="language" value="en-US" />
+
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-forward"></span> next page</button>
+                    </form>
+                </div>
+            </div><!-- /#pagination -->
+            <div class="clearfix"></div>
+        </div><!-- /#main_results -->
+
+        <div class="col-sm-4" id="sidebar_results">
+                <p><small>Number of results: 11,590,000,000</small></p>
+
+            <div class="alert alert-danger fade in" role="alert">
+                <p>Engines cannot retrieve results:</p>
+                wikidata (timeout)            </div>
+
+<div class="panel panel-default infobox">
+    <div class="panel-heading">
+        <h4 class="panel-title infobox_part"><bdi>YouTube</bdi></h4>
+    </div>
+    <div class="panel-body">
+<bdi><p class="infobox_part">YouTube is an American video-sharing website headquartered in San Bruno, California. Three former PayPal employees—Chad Hurley, Steve Chen, and Jawed Karim—created the service in February 2005. Google bought the site in November 2006 for US$1.65 billion; YouTube now operates as one of Google&#39;s subsidiaries.</bdi></p>
+
+        <div class="infobox_part">
+            <bdi>
+            <p class="btn btn-default btn-xs"><a href="https://en.wikipedia.org/wiki/YouTube" rel="noreferrer">Wikipedia</a></a></p>
+            </bdi>
+        </div>
+    </div>
+</div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Links</h4>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="search_url">Search URL</label>
+                            <input id="search_url" type="url" class="form-control select-all-on-click cursor-text" name="search_url" value="http://localhost:8888/?q=youtube&amp;categories=general&amp;language=en-US" readonly>
+                        </div>
+                    </form>
+
+                    <label>Download results</label>
+                    <div class="clearfix"></div>
+                    <form method="POST" action="/" class="form-inline pull-left result_download">
+                        <input type="hidden" name="category_general" value="1"/>    <input type="hidden" name="q" value="youtube" />
+    <input type="hidden" name="pageno" value="1" />
+    <input type="hidden" name="time_range" value="" />
+    <input type="hidden" name="language" value="en-US" />
+
+                        <input type="hidden" name="format" value="csv">
+                        <button type="submit" class="btn btn-default">csv</button>
+                    </form>
+                    <form method="POST" action="/" class="form-inline pull-left result_download">
+                        <input type="hidden" name="category_general" value="1"/>    <input type="hidden" name="q" value="youtube" />
+    <input type="hidden" name="pageno" value="1" />
+    <input type="hidden" name="time_range" value="" />
+    <input type="hidden" name="language" value="en-US" />
+
+                        <input type="hidden" name="format" value="json">
+                        <button type="submit" class="btn btn-default">json</button>
+                    </form>
+                    <form method="POST" action="/" class="form-inline pull-left result_download">
+                        <input type="hidden" name="category_general" value="1"/>    <input type="hidden" name="q" value="youtube" />
+    <input type="hidden" name="pageno" value="1" />
+    <input type="hidden" name="time_range" value="" />
+    <input type="hidden" name="language" value="en-US" />
+
+                        <input type="hidden" name="format" value="rss">
+                        <button type="submit" class="btn btn-default">rss</button>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div><!-- /#sidebar_results -->
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <small>
+                    Powered by <a href="https://asciimoo.github.io/searx/">searx</a> - 0.15.0 - a privacy-respecting, hackable metasearch engine<br/>
+                    <a href="https://github.com/asciimoo/searx">Source code</a> |
+                    <a href="https://github.com/asciimoo/searx/issues">Issue tracker</a> |
+                    <a href="https://github.com/asciimoo/searx/wiki/Searx-instances">Public instances</a>
+                </small>
+            </p>
+        </div>
+    </div>
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/require-2.1.15.min.js"></script>
+    <script src="/static/themes/oscar/js/searx.min.js"
+            data-method="POST"
+            data-autocompleter="false"></script>
+        <script src="/static/plugins/js/search_on_category_select.js"></script>
+    <noscript>
+      <style>
+        .glyphicon { display: none; }
+      </style>
+    </noscript>
+</body>
+</html>Q�����      ]�l�]�l�@�hD       #    ~1570204810,:http://localhost:8888/ necko:classified 1 strongly-framed 1 request-method POST response-head HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 21365
+Server-Timing: total;dur=3116.84, total_0_bi;dur=445.018, total_1_go;dur=1200.342, total_2_wp;dur=1219.003, load_0_bi;dur=432.239, load_1_go;dur=1182.272, load_2_wp;dur=1211.362
+Server: Werkzeug/0.16.0 Python/2.7.16
+Date: Fri, 04 Oct 2019 16:00:24 GMT
+ original-response-headers Content-Type: text/html; charset=utf-8
+Content-Length: 21365
+Server-Timing: total;dur=3116.84, total_0_bi;dur=445.018, total_1_go;dur=1200.342, total_2_wp;dur=1219.003, load_0_bi;dur=432.239, load_1_go;dur=1182.272, load_2_wp;dur=1211.362
+Server: Werkzeug/0.16.0 Python/2.7.16
+Date: Fri, 04 Oct 2019 16:00:24 GMT
+ uncompressed-len 0 net-response-time-onstart 3119 net-response-time-onstop 3123   Su

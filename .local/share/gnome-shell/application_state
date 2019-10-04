@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<application-state>
+  <context id="">
+    <application id="gnome-control-center.desktop" open-window-count="0" score="21" last-seen="1570190863"/>
+    <application id="yelp.desktop" open-window-count="0" score="0" last-seen="1570178749"/>
+    <application id="firefox-esr.desktop" open-window-count="1" score="834" last-seen="1570205684"/>
+    <application id="debian-xterm.desktop" open-window-count="0" score="113" last-seen="1570178295"/>
+    <application id="leafpad.desktop" open-window-count="0" score="216" last-seen="1570193156"/>
+    <application id="org.gnome.Nautilus.desktop" open-window-count="0" score="38" last-seen="1570204407"/>
+    <application id="zenmap.desktop" open-window-count="0" score="8" last-seen="1570138471"/>
+    <application id="wireshark.desktop" open-window-count="0" score="25" last-seen="1570175914"/>
+    <application id="org.gnome.Terminal.desktop" open-window-count="0" score="651" last-seen="1570205686"/>
+    <application id="org.gnome.Totem.desktop" open-window-count="0" score="12" last-seen="1570179898"/>
+    <application id="bleachbit.desktop" open-window-count="0" score="4" last-seen="1570193192"/>
+  </context>
+</application-state>

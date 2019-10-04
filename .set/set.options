@@ -1,0 +1,5 @@
+{This is the main SET configuration file for all options used in SET}
+
+IPADDR=192.168.29.41
+
+APPLET_NAME=iVwQkdItxCdKPvN.jar

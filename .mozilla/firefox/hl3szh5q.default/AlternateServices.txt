@@ -1,0 +1,1 @@
+http:www.fast2sms.com:80:.:	0	18173	http:www.fast2sms.com:80:www.fast2sms.com:443::n:1570206043:h2:y:1570205682:n::

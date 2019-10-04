@@ -1,0 +1,4 @@
+#Thu Oct 03 21:42:00 UTC 2019
+s3=jar\:file\:/usr/share/maltego/ide/jsstubs/corestubs.zip\!/
+s2=jar\:file\:/usr/share/maltego/ide/jsstubs/domstubs.zip\!/
+s1=jar\:file\:/usr/share/maltego/ide/jsstubs/reststubs.zip\!/
